@@ -1,0 +1,4 @@
+# Ignore .terraform directories
+.terraform/
+/eks/.terraform/
+
