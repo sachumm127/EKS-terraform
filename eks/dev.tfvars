@@ -47,6 +47,10 @@ addons = [
   {
     name    = "aws-ebs-csi-driver"
     version = "v1.36.0-eksbuild.1"
+  },
+  {
+    name    = "aws-pod-identity-webhook",
+    version = "v1.3.4-eksbuild.1" 
   }
   # Add more addons as needed
 ]
