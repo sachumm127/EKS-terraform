@@ -49,7 +49,7 @@ addons = [
     version = "v1.36.0-eksbuild.1"
   },
   {
-    name    = "aws-pod-identity-agent",
+    name    = "aws-pod-identity-agent"
     version = "v1.3.4-eksbuild.1" 
   }
   # Add more addons as needed
