@@ -47,10 +47,6 @@ addons = [
   {
     name    = "aws-ebs-csi-driver"
     version = "v1.36.0-eksbuild.1"
-  },
-  {
-    name    = "aws-pod-identity-agent"
-    version = "v1.1.0-eksbuild.1" 
   }
   # Add more addons as needed
 ]
