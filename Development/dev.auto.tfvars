@@ -26,7 +26,7 @@ endpoint-public-access  = false
 ondemand_instance_types = ["t3a.medium"]
 desired_capacity_on_demand = "3"
 min_capacity_on_demand     = "3"
-max_capacity_on_demand     = "4"
+max_capacity_on_demand     = "5"
 addons = [
   {
     name    = "vpc-cni",
