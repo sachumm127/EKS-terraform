@@ -1,4 +1,5 @@
 # Ignore .terraform directories
 .terraform/
-/eks/.terraform/
+/Environment/Development/.terraform/
+/Environment/Production/.terraform/
 
