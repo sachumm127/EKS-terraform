@@ -26,22 +26,32 @@ variable "eip-name" {}
 variable "ngw-name" {}
 variable "eks-sg" {}
 
+# EKS variables (Corrected with underscores!)
+variable "is_eks_cluster_enabled" {}
+variable "cluster_version" {}
+variable "endpoint_private_access" {}
+variable "endpoint_public_access" {}
 
-# EKS
-variable "is-eks-cluster-enabled" {}
-variable "cluster-version" {}
-variable "endpoint-private-access" {}
-variable "endpoint-public-access" {}
+# Node Group variables
 variable "ondemand_instance_types" {
   default = ["t3a.medium"]
 }
-
 variable "desired_capacity_on_demand" {}
 variable "min_capacity_on_demand" {}
 variable "max_capacity_on_demand" {}
+
+variable "spot_instance_types" {
+  type = list(string)
+}
+variable "desired_capacity_spot" {}
+variable "min_capacity_spot" {}
+variable "max_capacity_spot" {}
+
+# Addons
 variable "addons" {
   type = list(object({
     name    = string
     version = string
   }))
 }
+

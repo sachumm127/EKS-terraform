@@ -6,10 +6,10 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = "dev-eks-terraform.state"
+    bucket         = "openreply-terraform.state"
     region         = "us-east-1"
     key            = "eks/terraform.tfstate"
-    dynamodb_table = "Lock-Files"
+   # dynamodb_table = "Lock-Files"
     encrypt        = true
   }
 }

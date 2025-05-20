@@ -95,3 +95,9 @@ resource "aws_iam_role_policy_attachment" "eks-oidc-policy-attach" {
   role       = aws_iam_role.eks_oidc.name
   policy_arn = aws_iam_policy.eks-oidc-policy.arn
 }
+
+resource "aws_iam_role_policy_attachment" "eks-EC2SpotInstancePolicy" {
+  count      = var.is_eks_nodegroup_role_enabled ? 1 : 0
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetTaggingRole" 
+  role       = aws_iam_role.eks-nodegroup-role[count.index].name
+}

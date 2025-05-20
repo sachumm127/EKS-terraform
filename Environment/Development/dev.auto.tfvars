@@ -1,5 +1,8 @@
+# General Environment Settings
 env                   = "dev"
 aws-region            = "us-east-1"
+
+# VPC Networking Settings
 vpc-cidr-block        = "10.16.0.0/16"
 vpc-name              = "vpc"
 igw-name              = "igw"
@@ -15,34 +18,43 @@ public-rt-name        = "public-route-table"
 private-rt-name       = "private-route-table"
 eip-name              = "elasticip-ngw"
 ngw-name              = "ngw"
-eks-sg                = "eks-sg"
+eks-sg                = "openreplay-eks-sg"
 
-# EKS
-is-eks-cluster-enabled  = true
-cluster-version         = "1.30"
+# EKS Cluster Settings
+is_eks_cluster_enabled  = true
+cluster_version         = "1.31"
 cluster-name            = "eks-cluster"
-endpoint-private-access = true
-endpoint-public-access  = false
-ondemand_instance_types = ["t2.medium"]
-desired_capacity_on_demand = "2"
-min_capacity_on_demand     = "2"
-max_capacity_on_demand     = "3"
+endpoint_private_access = false
+endpoint_public_access  = true
+
+# OnDemand Node Group Settings (Disabled by setting 0 capacity)
+ondemand_instance_types    = ["t2.medium"]
+desired_capacity_on_demand = 0
+min_capacity_on_demand     = 0
+max_capacity_on_demand     = 1
+
+# Spot Node Group Settings (Enabled)
+spot_instance_types        = ["t3.medium"]
+desired_capacity_spot      = 0
+min_capacity_spot          = 0
+max_capacity_spot          = 1
+
+# EKS Addons
 addons = [
   {
-    name    = "vpc-cni",
-    version = "v1.18.1-eksbuild.1"
+    name    = "vpc-cni"
+    version = "v1.19.0-eksbuild.1"
   },
   {
     name    = "coredns"
-    version = "v1.11.1-eksbuild.9"
+    version = "v1.11.4-eksbuild.10"
   },
   {
     name    = "kube-proxy"
-    version = "v1.29.3-eksbuild.2"
+    version = "v1.31.2-eksbuild.3"
   },
   {
     name    = "aws-ebs-csi-driver"
-    version = "v1.36.0-eksbuild.1"
+    version = "v1.43.0-eksbuild.1"
   }
-  # Add more addons as needed
 ]
